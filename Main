@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'BuyNowPage.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ProductDetailsPage(), // or any other starting page
+    );
+  }
+}
+class ProductDetailsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Product Details'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              'Laptop',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            Image.asset('assets/laptop.png'),
+            const SizedBox(height: 16),
+            const Text(
+              'Product Price: \$160.00',
+              style: TextStyle(fontSize: 22, color: Colors.green),
+            ),
+            const SizedBox(height: 18),
+            const Text(
+              'Processor: HP laptops are available with a variety of processors from Intel and AMD, including Core i3, i5, i7, and Ryzen processors.'
+               ' Memory: HP laptops typically come with 4GB to 16GB of RAM, although some high-end models may have more.',
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            // Add other widgets as needed
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BuyNowPage(),
+                  ),
+                );
+              },
+              child: const Text('Buy Now'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
